@@ -1,32 +1,22 @@
 package com.codeaura.store;
 
-import com.codeaura.store.entities.Address;
-import com.codeaura.store.entities.Profile;
-import com.codeaura.store.entities.Tag;
-import com.codeaura.store.entities.User;
+
+import com.codeaura.store.services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class StoreApplication {
 
     public static void main(String[] args) {
 
-//		SpringApplication.run(StoreApplication.class, args);
-        var user = User.builder()
-                .name("John")
-                .password("password")
-                .email("gyan@gmail.com")
-                .id(1L)
-                .build();
 
-        var profile= Profile.builder()
-                        .bio("gfhdj")
-                                .build();
+        ApplicationContext context  =SpringApplication.run(StoreApplication.class, args);
+        var service=context.getBean(UserService.class);
+        service.showEntityStates();
 
-        user.setProfile(profile);
-        profile.setUser(user);
-        System.out.println(user);
+
     }
 
 }

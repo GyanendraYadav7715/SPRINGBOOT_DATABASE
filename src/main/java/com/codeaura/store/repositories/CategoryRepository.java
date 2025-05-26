@@ -1,4 +1,8 @@
 package com.codeaura.store.repositories;
 
-public interface CategoryRepository {
+import com.codeaura.store.entities.Category;
+import org.springframework.data.repository.CrudRepository;
+
+public interface CategoryRepository extends CrudRepository<Category, Long> {
+
 }

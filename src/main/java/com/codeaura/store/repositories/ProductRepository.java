@@ -1,4 +1,8 @@
 package com.codeaura.store.repositories;
 
-public interface ProductRepository {
+import com.codeaura.store.entities.Product;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ProductRepository extends CrudRepository<Product, Long> {
+
 }
