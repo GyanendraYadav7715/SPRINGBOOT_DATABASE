@@ -1,6 +1,7 @@
 package com.codeaura.store;
 
 import com.codeaura.store.entities.Address;
+import com.codeaura.store.entities.Profile;
 import com.codeaura.store.entities.Tag;
 import com.codeaura.store.entities.User;
 import org.springframework.boot.SpringApplication;
@@ -19,8 +20,12 @@ public class StoreApplication {
                 .id(1L)
                 .build();
 
-        user.addTag( "Tag1");
+        var profile= Profile.builder()
+                        .bio("gfhdj")
+                                .build();
 
+        user.setProfile(profile);
+        profile.setUser(user);
         System.out.println(user);
     }
 
